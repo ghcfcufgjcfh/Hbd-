@@ -1,0 +1,1123 @@
+
+
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#090713">
+
+<title>LA — A World of Her Own</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap');
+
+:root {
+
+  --pink: #ffb4d2;
+
+  --rose: #d86b9b;
+
+  --gold: #f5d9a2;
+
+  --night: #090713;
+
+}
+
+* {
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+
+  background: var(--night);
+
+  color: white;
+
+  font-family: 'Amiri', serif;
+
+  overflow-x: hidden;
+
+}
+
+button {
+
+  font: inherit;
+
+  cursor: pointer;
+
+}
+
+#stars {
+
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+}
+
+.scene {
+
+  position: relative;
+
+  z-index: 1;
+
+  min-height: 100svh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 50px 22px;
+
+  overflow: hidden;
+
+}
+
+.hidden {
+
+  display: none !important;
+
+}
+
+.eyebrow {
+
+  color: var(--gold);
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 13px;
+
+  letter-spacing: 5px;
+
+  direction: ltr;
+
+  margin-bottom: 25px;
+
+}
+
+h1, h2, .english {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-weight: 300;
+
+  direction: ltr;
+
+}
+
+.hero-title {
+
+  font-size: clamp(64px, 17vw, 125px);
+
+  line-height: 1;
+
+  letter-spacing: 5px;
+
+  background: linear-gradient(130deg, #fff, #ffc1db, #e6c99a, #fff);
+
+  background-size: 250%;
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  color: transparent;
+
+  animation: shimmer 6s linear infinite;
+
+  filter: drop-shadow(0 0 28px #f59bc533);
+
+}
+
+@keyframes shimmer {
+
+  to { background-position: 250% center; }
+
+}
+
+.subtitle {
+
+  margin-top: 20px;
+
+  color: #d6c4dc;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: clamp(14px, 3.8vw, 20px);
+
+  letter-spacing: 3px;
+
+  direction: ltr;
+
+}
+
+.intro-text {
+
+  color: #d4c4dc;
+
+  font-size: 19px;
+
+  margin-top: 25px;
+
+  line-height: 2;
+
+}
+
+.gold-line {
+
+  width: 75px;
+
+  height: 1px;
+
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+
+  margin: 25px auto;
+
+}
+
+.btn {
+
+  color: white;
+
+  background: #ffffff09;
+
+  border: 1px solid #f5d9a277;
+
+  border-radius: 50px;
+
+  padding: 13px 32px;
+
+  margin-top: 28px;
+
+  transition: .35s;
+
+  letter-spacing: 1px;
+
+  backdrop-filter: blur(10px);
+
+}
+
+.btn:hover {
+
+  background: #f5d9a21b;
+
+  box-shadow: 0 0 30px #f5d9a222;
+
+  transform: translateY(-2px);
+
+}
+
+.small-note {
+
+  color: #9f91ad;
+
+  font-size: 13px;
+
+  margin-top: 18px;
+
+}
+
+#garden {
+
+  background:
+
+    radial-gradient(ellipse at 50% 80%, #56244155, transparent 55%),
+
+    linear-gradient(#100b1c, #170b1a 80%, #090713);
+
+}
+
+.garden-title {
+
+  font-size: clamp(37px, 9vw, 65px);
+
+  color: var(--pink);
+
+  margin-bottom: 10px;
+
+}
+
+.garden-description {
+
+  max-width: 480px;
+
+  color: #c8b6d0;
+
+  line-height: 2;
+
+  font-size: 18px;
+
+}
+
+.flower-field {
+
+  width: min(100%, 650px);
+
+  min-height: 270px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: center;
+
+  gap: clamp(5px, 3vw, 25px);
+
+  padding: 25px 5px 0;
+
+  margin-top: 15px;
+
+}
+
+.flower {
+
+  position: relative;
+
+  width: 65px;
+
+  height: 180px;
+
+  flex: 1;
+
+  max-width: 90px;
+
+  transform-origin: bottom center;
+
+  animation: sway 4s ease-in-out infinite alternate;
+
+}
+
+.flower:nth-child(2n) { animation-delay: -1.5s; }
+
+.flower:nth-child(3n) { animation-delay: -2.5s; }
+
+.stem {
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 50%;
+
+  width: 2px;
+
+  height: 70%;
+
+  background: linear-gradient(#65966b, #254c3b);
+
+  transform: rotate(4deg);
+
+  transform-origin: bottom;
+
+}
+
+.leaf {
+
+  position: absolute;
+
+  width: 25px;
+
+  height: 12px;
+
+  bottom: 45px;
+
+  left: calc(50% - 22px);
+
+  background: #507e59;
+
+  border-radius: 100% 0 100% 0;
+
+  transform: rotate(-20deg);
+
+}
+
+.bloom {
+
+  position: absolute;
+
+  top: 5px;
+
+  left: 50%;
+
+  width: 54px;
+
+  height: 54px;
+
+  transform: translateX(-50%);
+
+}
+
+.petal {
+
+  position: absolute;
+
+  left: 18px;
+
+  top: 0;
+
+  width: 19px;
+
+  height: 29px;
+
+  background: linear-gradient(145deg, #ffd8e9, #df77a6);
+
+  border-radius: 50% 50% 40% 40%;
+
+  transform-origin: 50% 27px;
+
+  box-shadow: 0 0 12px #ffb4d233;
+
+}
+
+.petal:nth-child(1) { transform: rotate(0deg); }
+
+.petal:nth-child(2) { transform: rotate(60deg); }
+
+.petal:nth-child(3) { transform: rotate(120deg); }
+
+.petal:nth-child(4) { transform: rotate(180deg); }
+
+.petal:nth-child(5) { transform: rotate(240deg); }
+
+.petal:nth-child(6) { transform: rotate(300deg); }
+
+.center {
+
+  position: absolute;
+
+  left: 23px;
+
+  top: 23px;
+
+  width: 9px;
+
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  box-shadow: 0 0 15px var(--gold);
+
+}
+
+@keyframes sway {
+
+  from { transform: rotate(-5deg); }
+
+  to { transform: rotate(5deg); }
+
+}
+
+#universe {
+
+  background:
+
+    radial-gradient(ellipse at 50% 50%, #25123e 0%, #100a23 40%, #070611 100%);
+
+}
+
+.orbit {
+
+  width: min(66vw, 260px);
+
+  aspect-ratio: 1;
+
+  position: relative;
+
+  border: 1px solid #e5c4e333;
+
+  border-radius: 50%;
+
+  display: grid;
+
+  place-items: center;
+
+  margin: 32px 0;
+
+  animation: rotateOrbit 22s linear infinite;
+
+}
+
+.orbit::before {
+
+  content: '';
+
+  position: absolute;
+
+  inset: 15%;
+
+  border: 1px solid #e5c4e322;
+
+  border-radius: 50%;
+
+}
+
+.planet {
+
+  width: 58%;
+
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  display: grid;
+
+  place-items: center;
+
+  background:
+
+    radial-gradient(circle at 30% 28%, #ffe3ee 0%, #e7a2ce 8%, #9659ac 35%, #33235e 65%, #100b28 100%);
+
+  box-shadow:
+
+    inset -20px -10px 30px #080617aa,
+
+    0 0 35px #d99bff55,
+
+    0 0 90px #b77bff22;
+
+  animation: planetGlow 5s ease-in-out infinite alternate;
+
+}
+
+.planet span {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  direction: ltr;
+
+  font-size: clamp(35px, 10vw, 58px);
+
+  letter-spacing: 3px;
+
+  color: #fff0f7;
+
+  text-shadow: 0 0 20px #ffb4d2aa;
+
+}
+
+.moon {
+
+  position: absolute;
+
+  top: 12%;
+
+  right: 9%;
+
+  width: 13px;
+
+  height: 13px;
+
+  background: var(--gold);
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 22px var(--gold);
+
+}
+
+@keyframes rotateOrbit {
+
+  to { transform: rotate(360deg); }
+
+}
+
+@keyframes planetGlow {
+
+  to { filter: brightness(1.2); }
+
+}
+
+.universe-caption {
+
+  font-size: clamp(26px, 7vw, 43px);
+
+  color: #f5d9ee;
+
+  margin-bottom: 10px;
+
+}
+
+.universe-description {
+
+  color: #bdb0d0;
+
+  font-size: 17px;
+
+  line-height: 2;
+
+  max-width: 420px;
+
+}
+
+#letter {
+
+  background:
+
+    radial-gradient(ellipse at top, #34203b 0%, #120d20 45%, #090713 100%);
+
+}
+
+.letter-card {
+
+  width: min(100%, 680px);
+
+  padding: clamp(25px, 6vw, 55px);
+
+  border: 1px solid #f5d9a233;
+
+  background: linear-gradient(145deg, #ffffff08, #ffffff02);
+
+  border-radius: 4px;
+
+  box-shadow: 0 20px 100px #00000030;
+
+  text-align: right;
+
+  position: relative;
+
+}
+
+.letter-card::before,
+
+.letter-card::after {
+
+  content: '✦';
+
+  position: absolute;
+
+  color: var(--gold);
+
+  opacity: .7;
+
+  font-size: 18px;
+
+}
+
+.letter-card::before {
+
+  top: 14px;
+
+  right: 16px;
+
+}
+
+.letter-card::after {
+
+  bottom: 14px;
+
+  left: 16px;
+
+}
+
+.letter-heading {
+
+  color: var(--gold);
+
+  font-size: 13px;
+
+  text-align: center;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 30px;
+
+  direction: ltr;
+
+  font-family: 'Cormorant Garamond', serif;
+
+}
+
+.letter-text {
+
+  font-size: clamp(17px, 4.3vw, 21px);
+
+  line-height: 2.2;
+
+  color: #f0e5f0;
+
+  white-space: pre-wrap;
+
+  overflow-wrap: anywhere;
+
+}
+
+.signature {
+
+  margin-top: 35px;
+
+  text-align: center;
+
+  color: var(--pink);
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 43px;
+
+  direction: ltr;
+
+}
+
+.final-title {
+
+  font-size: clamp(72px, 18vw, 130px);
+
+  color: #ffe0ed;
+
+  text-shadow: 0 0 45px #f4a8d755;
+
+  animation: finalPulse 4s ease-in-out infinite alternate;
+
+}
+
+@keyframes finalPulse {
+
+  to { text-shadow: 0 0 70px #f4a8d799; }
+
+}
+
+.final-caption {
+
+  font-family: 'Cormorant Garamond', serif;
+
+  direction: ltr;
+
+  color: var(--gold);
+
+  font-size: clamp(16px, 4vw, 23px);
+
+  letter-spacing: 3px;
+
+  margin-top: 18px;
+
+}
+
+.final-arabic {
+
+  color: #d9c7df;
+
+  margin-top: 22px;
+
+  font-size: 18px;
+
+}
+
+footer {
+
+  position: relative;
+
+  z-index: 1;
+
+  text-align: center;
+
+  color: #71677f;
+
+  padding: 22px;
+
+  font-family: 'Cormorant Garamond', serif;
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+
+  direction: ltr;
+
+}
+
+.petal-fall {
+
+  position: fixed;
+
+  top: -30px;
+
+  z-index: 5;
+
+  pointer-events: none;
+
+  color: #f8b6d6;
+
+  animation: fall linear forwards;
+
+}
+
+@keyframes fall {
+
+  to {
+
+    transform: translate3d(var(--drift), 110vh, 0) rotate(700deg);
+
+    opacity: 0;
+
+  }
+
+}
+
+@media (max-width: 420px) {
+
+  .flower-field { min-height: 220px; }
+
+  .flower { height: 145px; }
+
+  .letter-text { line-height: 2; }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<main>
+
+<section class="scene" id="intro">
+
+  <p class="eyebrow">A SPECIAL WORLD · 07 MAY</p>
+
+  <h1 class="hero-title">LA</h1>
+
+  <p class="subtitle">A WORLD OF HER OWN</p>
+
+  <div class="gold-line"></div>
+
+  <p class="intro-text">
+
+    بعض الأشخاص ما يكفيهم كلام العالم كله.<br>
+
+    لذلك صنعت لك عالمًا صغيرًا باسمك.
+
+  </p>
+
+  <button class="btn" onclick="goTo('garden')">ENTER HER WORLD ✦</button>
+
+  <p class="small-note">A little universe made just for you</p>
+
+</section>
+
+<section class="scene hidden" id="garden">
+
+  <p class="eyebrow">CHAPTER I · THE GARDEN</p>
+
+  <h2 class="garden-title">حديقة لأجلك</h2>
+
+  <p class="garden-description">
+
+    لو كان لكل إنسان حديقة تشبه روحه،<br>
+
+    لكانت حديقتك مليئة بالورد الذي لا يذبل.
+
+  </p>
+
+  <div class="flower-field" id="flowers"></div>
+
+  <p class="small-note">Every flower belongs to your world.</p>
+
+  <button class="btn" onclick="goTo('universe')">BEYOND THE GARDEN ✦</button>
+
+</section>
+
+<section class="scene hidden" id="universe">
+
+  <p class="eyebrow">CHAPTER II · YOUR UNIVERSE</p>
+
+  <h2 class="universe-caption">عالم يحمل اسمك</h2>
+
+  <p class="universe-description">
+
+    بين كل نجوم السماء،<br>
+
+    صنعت لك كوكبًا لا يشبه أي مكان آخر.
+
+  </p>
+
+  <div class="orbit">
+
+    <div class="planet"><span>LA</span></div>
+
+    <div class="moon"></div>
+
+  </div>
+
+  <p class="universe-description">
+
+    مو لأن الكون ناقصه شيء،<br>
+
+    لكن لأن بعض الأسماء تستحق عالمًا كاملًا.
+
+  </p>
+
+  <button class="btn" onclick="goTo('letter')">ONE LAST THING ✦</button>
+
+</section>
+
+<section class="scene hidden" id="letter">
+
+  <p class="eyebrow">CHAPTER III · FROM MY HEART</p>
+
+  <h2 style="font-size:clamp(34px,8vw,54px);color:#f5d9a2;margin-bottom:30px">
+
+    إلى ليان
+
+  </h2>
+
+  <article class="letter-card">
+
+    <p class="letter-heading">A LETTER FOR YOU</p>
+
+    <p class="letter-text" id="message"></p>
+
+    <div class="signature">LA ♡</div>
+
+  </article>
+
+  <button class="btn" onclick="goTo('final')">THE END? ✦</button>
+
+  <p class="small-note">Some people become a part of your world.</p>
+
+</section>
+
+<section class="scene hidden" id="final">
+
+  <p class="eyebrow">AND SO, THE UNIVERSE IS YOURS</p>
+
+  <h1 class="final-title">LA</h1>
+
+  <div class="gold-line"></div>
+
+  <p class="final-caption">A WORLD OF HER OWN</p>
+
+  <p class="final-arabic">كل عام وأنتِ أجمل حكاية.</p>
+
+  <button class="btn" onclick="replay()">EXPERIENCE IT AGAIN ↻</button>
+
+</section>
+
+</main>
+
+<footer>MADE WITH LOVE · FOR LA · FOREVER IN THIS LITTLE UNIVERSE</footer>
+
+<script>
+
+const originalMessage = `في 2008/5/7و1429/5/2 انولدت اجمل واعز انسانه عندي بالدنيا وافضل صديقه ومستمعه لفضفضتي الكثيره وكلامي الي مايخلص انسانه غيرت فيني الكثير وغيرت نظري اتجاه اشياء بشكل كبير علامتها بحياتي كبيره جدا ومهما سويت لك ياليان ماوفيك حقك يابعد الدنيا وملاك هالكون بتبقين دايم بعيوني ليان نفسك الانسانه الي اعزها جدا مهما سويتي ماعمري بشوف منك غلط لان والله حتى اغلاطك بعيني صواب دخلتي 19 هجري وباقي الميلادي ان شاءالله اسئل الله ان يكتبلك الخير وين مارحتي وان الله يوفقك بحياتك وبدراستك وييسر امورك والله انك اعظم واطهر قلب عرفته انسانه اتعلم منها الشي الكثير بكل شي ونهايه كلامي احبك جدا وهابي بيرثداي اسلامي ههههههههههه`;
+
+document.getElementById('message').textContent = originalMessage;
+
+function goTo(id) {
+
+  document.querySelectorAll('.scene').forEach(scene => {
+
+    scene.classList.add('hidden');
+
+  });
+
+  const target = document.getElementById(id);
+
+  target.classList.remove('hidden');
+
+  window.scrollTo({ top: 0, behavior: 'instant' });
+
+  if (id === 'garden' || id === 'final') {
+
+    petals(24);
+
+  }
+
+  if (id === 'final') {
+
+    petals(45);
+
+  }
+
+}
+
+function replay() {
+
+  goTo('intro');
+
+}
+
+const flowerContainer = document.getElementById('flowers');
+
+for (let i = 0; i < 9; i++) {
+
+  const flower = document.createElement('div');
+
+  flower.className = 'flower';
+
+  const bloom = document.createElement('div');
+
+  bloom.className = 'bloom';
+
+  for (let j = 0; j < 6; j++) {
+
+    const petal = document.createElement('div');
+
+    petal.className = 'petal';
+
+    bloom.appendChild(petal);
+
+  }
+
+  const center = document.createElement('div');
+
+  center.className = 'center';
+
+  bloom.appendChild(center);
+
+  const stem = document.createElement('div');
+
+  stem.className = 'stem';
+
+  const leaf = document.createElement('div');
+
+  leaf.className = 'leaf';
+
+  flower.appendChild(stem);
+
+  flower.appendChild(leaf);
+
+  flower.appendChild(bloom);
+
+  flower.style.animationDelay = `${Math.random() * -4}s`;
+
+  flower.style.transform = `scale(${0.7 + Math.random() * 0.5})`;
+
+  flowerContainer.appendChild(flower);
+
+}
+
+function petals(count) {
+
+  for (let i = 0; i < count; i++) {
+
+    setTimeout(() => {
+
+      const petal = document.createElement('div');
+
+      petal.className = 'petal-fall';
+
+      petal.textContent = Math.random() > 0.5 ? '✿' : '✧';
+
+      petal.style.left = Math.random() * 100 + 'vw';
+
+      petal.style.fontSize = (10 + Math.random() * 18) + 'px';
+
+      petal.style.setProperty('--drift', (Math.random() * 180 - 90) + 'px');
+
+      petal.style.animationDuration = (4 + Math.random() * 5) + 's';
+
+      document.body.appendChild(petal);
+
+      setTimeout(() => petal.remove(), 9500);
+
+    }, i * 100);
+
+  }
+
+}
+
+// Animated night sky
+
+const canvas = document.getElementById('stars');
+
+const ctx = canvas.getContext('2d');
+
+let stars = [];
+
+function resizeStars() {
+
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  canvas.width = window.innerWidth * dpr;
+
+  canvas.height = window.innerHeight * dpr;
+
+  canvas.style.width = window.innerWidth + 'px';
+
+  canvas.style.height = window.innerHeight + 'px';
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  stars = Array.from({ length: Math.min(180, Math.floor(window.innerWidth / 2.5)) }, () => ({
+
+    x: Math.random() * window.innerWidth,
+
+    y: Math.random() * window.innerHeight,
+
+    r: Math.random() * 1.4 + 0.2,
+
+    a: Math.random(),
+
+    speed: Math.random() * 0.008 + 0.002
+
+  }));
+
+}
+
+function drawStars() {
+
+  ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+  stars.forEach(star => {
+
+    star.a += star.speed;
+
+    const alpha = 0.25 + (Math.sin(star.a) + 1) * 0.35;
+
+    ctx.beginPath();
+
+    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+
+    ctx.fillStyle = `rgba(255,235,248,${alpha})`;
+
+    ctx.fill();
+
+  });
+
+  requestAnimationFrame(drawStars);
+
+}
+
+window.addEventListener('resize', resizeStars);
+
+resizeStars();
+
+drawStars();
+
+</script>
+
+</body>
+
+</html>
